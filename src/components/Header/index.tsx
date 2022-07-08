@@ -1,0 +1,17 @@
+import { SigningButton } from '../SigninButton';
+import styles from './styles.module.scss';
+
+export function Header() {
+  return (
+    <header className={styles.headerContainer}>
+      <div className={styles.headerContent}>
+        <img src="/assets/logo.svg" alt="ig.news" />
+        <nav>
+          <a className={styles.active}>Home</a>
+          <a className={styles.active}>Posts</a>
+        </nav>
+        <SigningButton />
+      </div>
+    </header>
+  );
+}
