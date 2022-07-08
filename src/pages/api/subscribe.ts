@@ -1,13 +1,13 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import { getSession } from 'next-auth/react';
-import stripe from 'stripe';
+import { stripe } from '../../services/stripe';
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method === 'POST') {
     const session = await getSession({ req });
 
-    const stripeCustomer = await stripe.customer.create({
+    const stripeCustomer = await stripe.customers.create({
       email: session.user.email
     });
 
